@@ -25,7 +25,11 @@
                             <div class="image-container">
                                 <div class="image-flash">
                                     <p class="author mb-1">
-                                        <strong>Captain:</strong> {{ post.author }}
+                                        {% if post.author.profile.job %}
+                                        <strong>{{post.author.profile.job}}:</strong> {{ post.author }}
+                                        {% else %}
+                                        <strong>Crew Member:</strong> {{ post.author }}
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
