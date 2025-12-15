@@ -20,5 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("", include("trekkies.urls"), name="trekkies-urls"),
-    path('admin/', admin.site.urls),    
+    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
 ]

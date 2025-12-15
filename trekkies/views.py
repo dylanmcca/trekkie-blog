@@ -4,7 +4,7 @@ from .models import Post
 
 # Create your views here.
 class PostList(generic.ListView):
-    queryset = Post.objects.all()
+    queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = 'trekkies/post_list.html'
     context_object_name = 'posts'
     paginate_by = 10
