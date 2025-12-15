@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Post Detail -->
+            <div class="card mb-4 shadow-sm">
+                {% if post.featured_image %}
+                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h1 class="card-title">{{ post.title }}</h1>
+                    <p class="text-muted">
+                        <strong>Captain:</strong> {{ post.author }}<br>
+                        <strong>Stardate:</strong> {{ post.created_on|date:"M d, Y" }}
+                    </p>
+                    <hr>
+                    <div class="card-text">
+                        {{ post.content|safe }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Home -->
+            <div class="mb-4">
+                <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

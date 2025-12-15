@@ -11,6 +11,7 @@ class Post(models.Model):
     User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     content = models.TextField()
+    featured_image = models.ImageField(upload_to='featured_images/', blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)

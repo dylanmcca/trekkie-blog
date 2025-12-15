@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+
+                {% for post in post_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+
+                        {% if post.featured_image %}
+                        <img class="card-img-top"
+                             src="{{ post.featured_image.url }}"
+                             alt="{{ post.title }}">
+                        {% endif %}
+
+                        <div class="card-body">
+
+                            <div class="image-container">
+                                <div class="image-flash">
+                                    <p class="author mb-1">
+                                        <strong>Captain:</strong> {{ post.author }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link text-decoration-none">
+                                <h2 class="card-title">
+                                    {{ post.title }}
+                                </h2>
+                            </a>
+
+                            {% if post.excerpt %}
+                            <p class="card-text">
+                                {{ post.excerpt }}
+                            </p>
+                            {% endif %}
+
+                            <hr />
+                            <p class="card-text text-muted h6 mb-0">
+                                Stardate: {{ post.created_on|date:"M d, Y" }}
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}"
+                   class="page-link">
+                    &laquo; Previous
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}"
+                   class="page-link">
+                    Next &raquo;
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+<!-- index.html content ends here -->
+
+{% endblock %}
