@@ -49,6 +49,12 @@ body {
    Cards & Content
    ============================== */
 
+/* Constrain featured images to consistent height */
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
 .card {
     border: none;
     background-color: rgba(17, 22, 42, 0.9);

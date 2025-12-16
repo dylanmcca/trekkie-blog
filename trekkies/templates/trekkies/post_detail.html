@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -9,11 +10,17 @@
             <div class="card mb-4 shadow-sm">
                 {% if post.featured_image %}
                 <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% else %}
+                <img class="card-img-top" src="{% static 'images/Captain-Kirk.jpg' %}" alt="{{ post.title }}">
                 {% endif %}
                 <div class="card-body">
                     <h1 class="card-title">{{ post.title }}</h1>
                     <p class="text-muted">
-                        <strong>Captain:</strong> {{ post.author }}<br>
+                        {% if post.author.profile.job %}
+                        <strong>{{ post.author.profile.job }}:</strong> {{ post.author }}<br>
+                        {% else %}
+                        <strong>Crew Member:</strong> {{ post.author }}<br>
+                        {% endif %}
                         <strong>Stardate:</strong> {{ post.created_on|date:"M d, Y" }}
                     </p>
                     <hr>
