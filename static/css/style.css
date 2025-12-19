@@ -211,6 +211,12 @@ body {
     border: none;
 }
 
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: #ff4d4d;
+    color: #ffffff;
+}
+
 /* ==============================
    Utility Classes
    ============================== */
