@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Post
+from django.contrib import messages
+#from django.http import HttpResponseRedirect
+from .models import Post, Comment
 from .forms import CommentForm
 
 # Create your views here.
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = "trekkies/index.html"
@@ -46,8 +49,12 @@ def post_detail(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
 
-        comment_form = CommentForm()    
+            comment_form = CommentForm() # Clear the form after successful submission   
 
     return render(
         request,
