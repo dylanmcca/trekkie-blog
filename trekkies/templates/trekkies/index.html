@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% block title %}Starfleet Logs - Home{% endblock %}
 {% block content %}
 
 <!-- index.html content starts here -->
@@ -14,15 +16,16 @@
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
 
-                        {% if post.featured_image %}
-                        <img class="card-img-top"
-                             src="{{ post.featured_image.url }}"
-                             alt="{{ post.title }}">
-                        {% endif %}
-
                         <div class="card-body">
 
                             <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                                    alt="{{ post.title }}">
+                                {% endif %}
                                 <div class="image-flash">
                                     <p class="author mb-1">
                                         {% if post.author.profile.job %}
