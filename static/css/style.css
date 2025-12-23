@@ -263,6 +263,14 @@ main {
    Delete Modal
    ============================== */
 
+#deleteModal {
+    z-index: 99999 !important;
+}
+
+#deleteModal .modal-dialog {
+    margin-top: 20vh;
+}
+
 #deleteModal .modal-content {
     background-color: #11162a !important;
     border: 1px solid #1f3cff !important;
