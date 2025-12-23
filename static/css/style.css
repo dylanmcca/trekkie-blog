@@ -341,3 +341,53 @@ main {
     border: none;
     color: #05070d;
 }
+
+/* ==============================
+   Django Messages / Alerts
+   ============================== */
+
+.alert-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.alert,
+.alert.alert-success,
+.alert.alert-info,
+.alert.alert-warning,
+.alert.alert-danger,
+.alert.alert-error {
+    background-color: #1a3a5c !important;
+    border: 2px solid #3a7ca5 !important;
+    color: #e6e9f0 !important;
+    border-radius: 8px !important;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.alert.alert-success {
+    border-color: #f5c542 !important;
+    color: #f5c542 !important;
+}
+
+.alert.alert-info {
+    border-color: #3a7ca5 !important;
+    color: #aab4ff !important;
+}
+
+.alert.alert-warning {
+    border-color: #f5c542 !important;
+    color: #f5c542 !important;
+}
+
+.alert.alert-danger,
+.alert.alert-error {
+    border-color: #c92a2a !important;
+    color: #ff6b6b !important;
+}
+
+.alert .btn-close {
+    filter: invert(1) !important;
+}
