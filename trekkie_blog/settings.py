@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-dev-key-change-in-production
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost' ]
 
 
