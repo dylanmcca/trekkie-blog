@@ -6,6 +6,22 @@ body {
     background-color: #0b0f1a; /* Deep space */
     color: #e6e9f0;
     font-family: 'Lato', sans-serif;
+    padding-top: 56px; /* Space for fixed navbar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ==============================
+   Navigation
+   ============================== */
+
+.navbar.fixed-top {
+    z-index: 9999 !important;
 }
 
 /* ==============================
@@ -49,10 +65,21 @@ body {
    Cards & Content
    ============================== */
 
-/* Constrain featured images to consistent height */
-.card-img-top {
+/* Constrain featured images to consistent height on index cards */
+.card .image-container .card-img-top {
     height: 300px;
     object-fit: cover;
+}
+
+/* Full image on post detail page - consistent sizing */
+.post-detail-img {
+    display: block;
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    padding: 0;
+    background-color: #11162a;
+    border-radius: 0.75rem 0.75rem 0 0;
 }
 
 .card {
@@ -60,11 +87,14 @@ body {
     background-color: rgba(17, 22, 42, 0.9);
     border-radius: 0.75rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 18px rgba(170, 180, 255, 0.25);
+    z-index: 1;
 }
 
 /* ==============================
@@ -227,6 +257,61 @@ body {
 
 .approval {
     color: #5ddcff; /* Starfleet cyan */
+}
+
+/* ==============================
+   Delete Modal
+   ============================== */
+
+#deleteModal .modal-content {
+    background-color: #11162a !important;
+    border: 1px solid #1f3cff !important;
+    color: #e6e9f0 !important;
+}
+
+#deleteModal .modal-header {
+    background-color: #11162a !important;
+    border-bottom: 1px solid #1f3cff !important;
+}
+
+#deleteModal .modal-title {
+    color: #f5c542 !important; /* Command gold */
+}
+
+#deleteModal .modal-body {
+    background-color: #11162a !important;
+    color: #e6e9f0 !important;
+}
+
+#deleteModal .modal-footer {
+    background-color: #11162a !important;
+    border-top: 1px solid #1f3cff !important;
+}
+
+#deleteModal .btn-close {
+    filter: invert(1) !important;
+}
+
+#deleteModal .btn-secondary {
+    background-color: #05070d !important;
+    border: 1px solid #aab4ff !important;
+    color: #aab4ff !important;
+}
+
+#deleteModal .btn-secondary:hover {
+    background-color: #1f3cff !important;
+    border-color: #1f3cff !important;
+    color: #ffffff !important;
+}
+
+#deleteModal .btn-danger {
+    background-color: #c92a2a !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+#deleteModal .btn-danger:hover {
+    background-color: #ff4d4d !important;
 }
 
 /* ==============================

@@ -10,9 +10,9 @@
             <!-- Post Detail -->
             <div class="card mb-4 shadow-sm">
                 {% if post.featured_image %}
-                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                <img class="post-detail-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                 {% else %}
-                <img class="card-img-top" src="{% static 'images/Captain-Kirk.jpg' %}" alt="{{ post.title }}">
+                <img class="post-detail-img" src="{% static 'images/Captain-Kirk.jpg' %}" alt="{{ post.title }}">
                 {% endif %}
                 <div class="card-body">
                     <h1 class="card-title">{{ post.title }}</h1>
