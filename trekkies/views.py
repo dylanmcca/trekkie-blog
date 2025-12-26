@@ -19,11 +19,11 @@ class PostList(generic.ListView):
         return Post.objects.filter(status=1).order_by('created_on')
 
 
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = 'trekkies/post_detail.html'
-    slug_field = 'slug'
-    context_object_name = 'post'
+#class PostDetail(generic.DetailView):
+#    model = Post
+#    template_name = 'trekkies/post_detail.html'
+#    slug_field = 'slug'
+#    context_object_name = 'post'
 
 def post_detail(request, slug):
     """

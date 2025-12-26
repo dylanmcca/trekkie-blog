@@ -112,9 +112,9 @@
     <!-- Main content -->
     <main class="flex-shrink-0 main-bg container mt-4">
         {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        <p class="text-end m-3" style="color: #f5c542;">You are logged in as {{ user }}</p>
         {% else %}
-        <p class="text-end m-3">You are not logged in</p>
+        <p class="text-end m-3" style="color: #f5c542;">You are not logged in</p>
         {% endif %}
 
         {% block content %}

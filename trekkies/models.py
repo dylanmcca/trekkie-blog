@@ -12,7 +12,6 @@ class Post(models.Model):
     User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     featured_image = CloudinaryField('image', default='placeholder')
-    #featured_image = models.ImageField(upload_to='featured_images/', blank=True, null=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
