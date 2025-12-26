@@ -69,6 +69,7 @@ main {
 .card .image-container .card-img-top {
     height: 300px;
     object-fit: cover;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
 }
 
 /* Full image on post detail page - consistent sizing */
