@@ -9,6 +9,7 @@ from .forms import CommentForm
 
 # Create your views here.
 
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = "trekkies/index.html"
@@ -18,12 +19,6 @@ class PostList(generic.ListView):
     def get_queryset(self):
         return Post.objects.filter(status=1).order_by('created_on')
 
-
-#class PostDetail(generic.DetailView):
-#    model = Post
-#    template_name = 'trekkies/post_detail.html'
-#    slug_field = 'slug'
-#    context_object_name = 'post'
 
 def post_detail(request, slug):
     """
@@ -41,7 +36,7 @@ def post_detail(request, slug):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-    
+
     # Get approved comments + current user's unapproved comments
     if request.user.is_authenticated:
         comments = post.comments.filter(
@@ -49,7 +44,7 @@ def post_detail(request, slug):
         ).order_by("-created_on")
     else:
         comments = post.comments.filter(approved=True).order_by("-created_on")
-    
+
     comment_count = post.comments.filter(approved=True).count()
 
     if request.method == "POST":
@@ -64,12 +59,17 @@ def post_detail(request, slug):
                 'Comment submitted and awaiting approval'
             )
 
-            comment_form = CommentForm() # Clear the form after successful submission   
+            comment_form = CommentForm()  # Clear form after submission
 
     return render(
         request,
         "trekkies/post_detail.html",
-        {"post": post, "comments": comments, "comment_count": comment_count, "comment_form": CommentForm()},
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": CommentForm()
+        },
     )
 
 
@@ -89,9 +89,13 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(
+                request, messages.SUCCESS, 'Comment Updated!'
+            )
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+            )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -108,6 +112,9 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR,
+            'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
