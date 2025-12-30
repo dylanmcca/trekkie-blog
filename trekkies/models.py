@@ -49,7 +49,7 @@ class Comment(models.Model):
 This model extends the built-in User model to include additional
 profile information, namely job title. It establishes a one-to-one
 relationship with the User model, allowing each user to have a
-unique profile.
+unique profile. Job titles were required on all site pages.
 """
 
 
