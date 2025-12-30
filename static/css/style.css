@@ -49,14 +49,6 @@ main {
    Backgrounds
    ============================== */
 
-.light-bg {
-    background-color: #11162a;
-}
-
-.dark-bg {
-    background-color: #05070d;
-}
-
 .main-bg {
     background-color: #0b0f1a;
 }
@@ -115,53 +107,12 @@ main {
     border-left: 4px solid #f5c542; /* Command stripe */
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
-
 .author {
     color: #ffffff;
     margin: 4px 8px;
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
-}
-
-/* ==============================
-   Masthead
-   ============================== */
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #05070d;
-    color: #f5c542;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #05070d;
-    transform: skew(15deg);
-    z-index: 100;
 }
 
 /* ==============================
@@ -175,17 +126,6 @@ main {
 
 .post-link:hover {
     color: #f5c542; /* Command gold */
-}
-
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-    color: #f5c542;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: #9aa3b2;
 }
 
 /* ==============================
@@ -207,34 +147,8 @@ main {
 }
 
 /* ==============================
-   Links (Inline)
+   Delete Button
    ============================== */
-
-.link {
-    color: #aab4ff;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #f5c542;
-    text-decoration: underline;
-}
-
-/* ==============================
-   Like / Delete Buttons
-   ============================== */
-
-.btn-like {
-    color: #c92a2a; /* Operations red */
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #ff4d4d;
-}
 
 .btn-delete {
     color: #ffffff;

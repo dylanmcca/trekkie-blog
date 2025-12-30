@@ -39,7 +39,9 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment:  {self.body} - by {self.author}"
     
-
+"""This model extends the built-in User model to include additional profile information, namely job title.
+It establishes a one-to-one relationship with the User model, allowing each user to have a unique profile.
+"""
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     job = models.CharField(max_length=100, blank=True)
